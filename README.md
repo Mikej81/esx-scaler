@@ -79,9 +79,16 @@ spec:
                   value: "192.168.125.66,192.168.125.67,192.168.12.68"
                 - name: XC_SITE_SCALE_CIDR
                   value: "24"
+              volumeMounts:
+              - name: working-volume
+                mountPath: /tmp/working
               imagePullPolicy: Always
+          volumes:
+          - name: working volume
+            hostPath:
+              path: /working
+              type: Directory
           restartPolicy: Never
-
 ```
 
 ## Configuration
